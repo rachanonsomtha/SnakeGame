@@ -9,8 +9,11 @@ using System.Timers;
 namespace SnakeGame
 {
     public class SnakeGameController : Controller
-    {
+    {   double count = 0;
         Timer timer;
+        
+
+        public static object KeyboardInfo { get; private set; }
 
         public SnakeGameController()
         {
@@ -42,6 +45,24 @@ namespace SnakeGame
             {
                 direction = SnakeGameModel.MOVE_RIGHT;
             }
+            else if (keys.Contains(Keys.Space))
+            {
+                
+                if (timer.Enabled ==true)
+                {
+                    Stop();
+                  
+                    
+                }
+                else if(timer.Enabled ==false)
+                    
+                {
+                    Start();
+                    
+                    
+                }
+
+            }
             // Find all snakeboard model we know
             if (direction == -1) return;
             foreach (Model m in mList)
@@ -58,15 +79,17 @@ namespace SnakeGame
 
 
         public void Start()
-        {
+        { //start the game 
             timer.Enabled = true; 
         }
 
         public void Stop()
         {
+
             // Stop the game
             timer.Enabled = false;
         }
+        
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {

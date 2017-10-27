@@ -120,8 +120,8 @@ namespace SnakeGame
             int x, y;
             do
             {
-                x = rand.Next(boardWidth);
-                y = rand.Next(boardHeight);
+                x = rand.Next(boardWidth-1);
+                y = rand.Next(boardHeight-1);
             } while (isSnakeBody(x, y));
             _board[x, y] = BOARD_FOOD;
         }
@@ -166,18 +166,21 @@ namespace SnakeGame
             if (isSnakeBody(curHeadX, curHeadY))
             {
                 _isHit = true;
+                _speed = 1;
                 return;
             }
             // hit wall?
             if (_board[curHeadX, curHeadY] == BOARD_WALL)
             {
                 _isHit = true;
+                _speed = 1;
                 return;
             }
             // hit food?
             if (_board[curHeadX, curHeadY] == BOARD_FOOD)
             {
                 _isEating = true;
+                
                 Speed += 1;
             }
             
