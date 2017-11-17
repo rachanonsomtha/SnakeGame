@@ -9,7 +9,7 @@ using System.Timers;
 namespace SnakeGame
 {
     public class SnakeGameController : Controller
-    {   double count = 0;
+    {   
         Timer timer;
         
 
@@ -51,6 +51,7 @@ namespace SnakeGame
                 if (timer.Enabled ==true)
                 {
                     Stop();
+                    System.Windows.Forms.MessageBox.Show("Pause");
                   
                     
                 }
@@ -58,8 +59,8 @@ namespace SnakeGame
                     
                 {
                     Start();
-                    
-                    
+                    System.Windows.Forms.MessageBox.Show("Resume");
+
                 }
 
             }

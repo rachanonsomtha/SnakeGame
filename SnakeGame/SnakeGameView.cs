@@ -14,6 +14,8 @@ namespace SnakeGame
     {
         private int _w;
         private int _h;
+        public int _wf;
+        public int _hf;
         private SnakeGameController controller = null;
         Texture2D snakeTile = null;
         Texture2D foodTile = null;
@@ -27,6 +29,7 @@ namespace SnakeGame
         {
             _w = w;
             _h = h;
+            
             try
             {
                 graphics = new GraphicsDeviceManager(this);
