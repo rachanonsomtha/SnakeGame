@@ -125,10 +125,10 @@ namespace SnakeGame
             int x, y;
             do
             {
-                x = rand.Next(boardWidth);
-                y = rand.Next(boardHeight);
+                x = rand.Next(boardWidth-2)+1;
+                y = rand.Next(boardHeight-2)+1;
             } while (isSnakeBody(x, y));
-            _board[x+1, y+1] = BOARD_FOOD;
+            _board[x+2, y+2] = BOARD_FOOD;
         }
 
         protected bool isSnakeBody(int x, int y)
